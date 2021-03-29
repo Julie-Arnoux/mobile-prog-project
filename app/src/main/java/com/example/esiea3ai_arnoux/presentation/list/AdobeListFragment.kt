@@ -36,13 +36,13 @@ class AdobeListFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
 
-        val AdobeList: ArrayList<String> = arrayListOf<String>().apply {
-            add("Photoshop")
-            add("Illustrator")
-            add("Premiere Pro")
-            add("In Design")
-            add("After Effects")
-            add("Lightroom")
+        val AdobeList: ArrayList<Adobe> = arrayListOf<Adobe>().apply {
+            add(Adobe("Photoshop", "lorem", "lorem"))
+            add(Adobe("Illustrator","lorem", "lorem"))
+            add(Adobe("Premiere Pro","lorem", "lorem"))
+            add(Adobe("In Design", "lorem", "lorem"))
+            add(Adobe("After Effects", "lorem", "lorem"))
+            add(Adobe("Lightroom", "lorem", "lorem"))
         }
         adapter.updateList(AdobeList)
     }

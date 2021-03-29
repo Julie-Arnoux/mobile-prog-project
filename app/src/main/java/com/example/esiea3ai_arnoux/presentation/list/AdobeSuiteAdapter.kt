@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.esiea3ai_arnoux.R
 
 
-class AdobeSuiteAdapter(private var dataSet: List<String>) :
+class AdobeSuiteAdapter(private var dataSet: List<Adobe>) :
     RecyclerView.Adapter<AdobeSuiteAdapter.ViewHolder>() {
 
     /**
@@ -24,7 +24,7 @@ class AdobeSuiteAdapter(private var dataSet: List<String>) :
         }
     }
 
-    fun updateList(list: List<String>){
+    fun updateList(list: List<Adobe>){
         dataSet = list
         notifyDataSetChanged()
     }
@@ -43,7 +43,8 @@ class AdobeSuiteAdapter(private var dataSet: List<String>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.text = dataSet[position]
+        val adobe: Adobe = dataSet[position]
+        viewHolder.textView.text = adobe.name
     }
 
     // Return the size of your dataset (invoked by the layout manager)
