@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.esiea3ai_arnoux.R
 
 
-class AdobeSuiteAdapter(private var dataSet: List<Adobe>) :
-    RecyclerView.Adapter<AdobeSuiteAdapter.ViewHolder>() {
+class SncfAdapter(private var dataSet: List<SNCF>) :
+    RecyclerView.Adapter<SncfAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
@@ -20,11 +20,11 @@ class AdobeSuiteAdapter(private var dataSet: List<Adobe>) :
 
         init {
             // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.adobe_name)
+            textView = view.findViewById(R.id.sncf_name)
         }
     }
 
-    fun updateList(list: List<Adobe>){
+    fun updateList(list: List<SNCF>){
         dataSet = list
         notifyDataSetChanged()
     }
@@ -33,7 +33,7 @@ class AdobeSuiteAdapter(private var dataSet: List<Adobe>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.adobe_suite_item, viewGroup, false)
+            .inflate(R.layout.sncf_item, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -43,8 +43,8 @@ class AdobeSuiteAdapter(private var dataSet: List<Adobe>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val adobe: Adobe = dataSet[position]
-        viewHolder.textView.text = adobe.name
+        val sncf: SNCF = dataSet[position]
+        viewHolder.textView.text = "Name:" + sncf.name
     }
 
     // Return the size of your dataset (invoked by the layout manager)

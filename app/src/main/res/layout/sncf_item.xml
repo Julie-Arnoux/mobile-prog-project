@@ -6,10 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/adobe_name"
+        android:id="@+id/sncf_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="PhotoShop"
+        tools:text="Hello World"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
