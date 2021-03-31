@@ -1,6 +1,8 @@
 package com.example.esiea3ai_arnoux.presentation.list.API
 
- data class StationsResponse(
-         val count: Int,
-         val next:
+import com.example.esiea3ai_arnoux.presentation.list.SNCF
+
+data class StationsResponse(
+         val nhits: Int,
+         val records: List<SNCF>
  )
