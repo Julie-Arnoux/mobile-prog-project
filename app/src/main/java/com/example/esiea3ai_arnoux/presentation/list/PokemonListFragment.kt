@@ -68,6 +68,7 @@ class PokemonListFragment : Fragment() {
     private fun onClickedPokemon(pokemon: Pokemon) {
         findNavController().navigate(R.id.navigateToPokemonDetailFragment)
     }
+
 }
 
 
