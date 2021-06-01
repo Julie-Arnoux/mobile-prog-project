@@ -8,23 +8,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.esiea3ai_arnoux.R
 
 
-class SncfAdapter(private var dataSet: List<SNCF>) :
-    RecyclerView.Adapter<SncfAdapter.ViewHolder>() {
+class PokemonAdapter(private var dataSet: List<Pokemon>, val listener:((Pokemon) -> Unit)? = null) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView
-
-        init {
+         val textView: TextView
+            init {
             // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.sncf_name)
+            textView = view.findViewById(R.id.pokemon_name)
         }
     }
 
-    fun updateList(list: List<SNCF>){
+    fun updateList(list: List<Pokemon>){
         dataSet = list
         notifyDataSetChanged()
     }
@@ -33,7 +31,7 @@ class SncfAdapter(private var dataSet: List<SNCF>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.sncf_item, viewGroup, false)
+            .inflate(R.layout.pokemon_item, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -43,8 +41,11 @@ class SncfAdapter(private var dataSet: List<SNCF>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        val sncf: SNCF = dataSet[position]
-        viewHolder.textView.text = "Name:" + sncf.name
+        val pokemon: Pokemon = dataSet[position]
+        viewHolder.textView.text = pokemon.name
+        viewHolder.itemView.setOnClickListener{
+            listener?.invoke(pokemon)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
