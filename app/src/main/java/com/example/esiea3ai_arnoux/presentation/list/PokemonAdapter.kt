@@ -3,9 +3,11 @@ package com.example.esiea3ai_arnoux.presentation.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.esiea3ai_arnoux.R
+import com.squareup.picasso.Picasso
 
 
 class PokemonAdapter(private var dataSet: List<Pokemon>, val listener:((Int) -> Unit)? = null) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
@@ -16,9 +18,11 @@ class PokemonAdapter(private var dataSet: List<Pokemon>, val listener:((Int) -> 
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
          val textView: TextView
+         val imageView: ImageView
             init {
             // Define click listener for the ViewHolder's View.
             textView = view.findViewById(R.id.pokemon_name)
+            imageView = view.findViewById(R.id.imageView)
         }
     }
 
@@ -46,6 +50,7 @@ class PokemonAdapter(private var dataSet: List<Pokemon>, val listener:((Int) -> 
         viewHolder.itemView.setOnClickListener{
             listener?.invoke(position)
         }
+        Picasso.get().load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${position+1}.png").into(viewHolder.imageView)
     }
 
     // Return the size of your dataset (invoked by the layout manager)
